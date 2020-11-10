@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head >
+    <meta charset='utf-8'>
+    <title>CSE 578 - Fall 2020 - Homework #5</title>
+    <link rel='stylesheet' href='css/style.css'>
+    <script src='https://d3js.org/d3.v5.min.js'></script>
+    <script src='scripts/homework5.js'></script>
+	
+
+
+  </head>
+  <body>
+    <div id='wrapper' >
+      <h2>Homework #5: Sovient Space Dogs</h2>
+      <h3>Tejaswi Paruchuri - tparuchu@asu.edu - 1213268054</h3>
+      <hr style='width:100%'>
+      <h1>Sovient Space Dogs</h1>
+      &nbsp;Start Year:&nbsp;
+      <select id='start-select' class="dropdown" onchange='onload_change()' value='1951'>
+        <option value='1951'>1951</option>
+        <option value='1954'>1954</option>
+		<option value='1955'>1955</option>
+		<option value='1956'>1956</option>
+        <option value='1957'>1957</option>
+		<option value='1958'>1958</option>
+		<option value='1959'>1959</option>
+        <option value='1960'>1960</option>
+		<option value='1961'>1961</option>
+		<option value='1966'>1966</option>
+      </select>
+	  &nbsp;
+	  &nbsp;End Year: &nbsp;
+	  <select id='end-select' class="dropdown" onchange='onload_change()' value='1966'>
+        <option value='1951'>1951</option>
+        <option value='1954'>1954</option>
+		<option value='1955'>1955</option>
+		<option value='1956'>1956</option>
+        <option value='1957'>1957</option>
+		<option value='1958'>1958</option>
+		<option value='1959'>1959</option>
+        <option value='1960'>1960</option>
+		<option value='1961'>1961</option>
+		<option value='1966'>1966</option>
+      </select>
+	  &nbsp;
+	  &nbsp;Gender:&nbsp;
+      <select id='gender-select' class="dropdown" onchange='onload_change()' value='All'>
+        <option value='All'>All</option>
+        <option value='Female'>Female</option>
+		<option value='Male'>Male</option>
+      </select>
+	  
+	  &nbsp;
+	  &nbsp;Fate: &nbsp;
+      <select id='fate-select' class="dropdown" onchange='onload_change()' value='All'>
+        <option value='All'>All</option>
+        <option value='Survived'>Survived</option>
+        <option value='Died'>Died</option>
+      </select>
+	  
+	  
+      <br/>
+      <br/>
+	  <svg id='map'></svg> &nbsp;&nbsp;<svg id='colors'></svg>
+	  <br />
+	  <br />
+	  <p>From the given Sovient Space dogs data the main focus is to show how many dogs has travelled in each trip and how many trips are made in each year which was further detailed to the month and day using grouping. Inner most circle gives information about <u>dogs, it's gender (stroke pink: Female, blue: Male), it's fate (stroke white: Survived, black: Dead) and the size of inner most circle shows the number of trips the dog has made</u>.If a dog has made multiple trips then the color of circle representing that dog will be same in all the outer most circles. If a dog has died lets say in it's fourth trip then the fate of dog will be shown as survived during it's first 3 trips by that one can easily relate during which trip dog has died.</p>
+	  <p><u>Interactions: selections from drop down, zoomIn and zoomOut (on circles), mouseover (on circles and names of dogs at right) </u> </p>
+	  <p>
+	  <u>Start Year & End Year:</u> Based on the selection from drop down the data between the StartYear and EndYear will only be displayed.<br/>
+	  <u>Gender:</u> Based on selection only details about specific gender dogs will be displayed.<br/>
+	  <u>Fate:</u> Based on selection only details about dogs either survived or dead will be displayed.<br/>
+	  <u>MouseOver Circle:</u> On hovering over the circle the respective information will be displayed on label and if the hovering is done on inner most circle (representing dogs) then the circles that correspond to that dog in other outer circle will also be highlighted.<br/>
+	  <u>MouseOver on DogName (at right):</u> On hovering over dog name all the innermost circles representing that dog information will be highlighted <br/>
+	  <u>ZoomIn:</u> On zooming over the specific circle will further drill down the circles to get detailed and clear view of the inner circle<br/>
+	  <u>ZoomOut:</u> On zooming out the circles will zoom out by one level
+	  </p>
+	  <p>
+	  <u>Marks & Channels:</u></p><p>
+	  <u>Channels:</u> Size (of inner circles) representing number of trips, color hue (for gender, fate and different dogs), color luminance (to differentiate different level of hierarchies)<br/>
+	  <u>Marks:</u>Different layers of cirlces representing different level of hierarchy of grouping (circle1:year,circle2:month,circle3:day,circle4:dogs),strokes representing gender and fate <br/>
+	  </p>
+    </div>
+  </body>
+</html>
